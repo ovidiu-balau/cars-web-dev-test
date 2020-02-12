@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon -w server.js server.js",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@types/yup": "^0.26.30",
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "firebase": "^7.8.1",
     "firebase-admin": "^8.9.2",

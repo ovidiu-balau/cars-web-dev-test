@@ -7,10 +7,7 @@ const FormikForm = ({
   fields,
   submitLabel,
   initialValues,
-  validationSchema,
-  prependChildren,
-  children,
-  refId
+  validationSchema
 }) => {
   return (
     <>
@@ -25,38 +22,29 @@ const FormikForm = ({
           isSubmitting,
           status,
           error,
-          errors,
           touched,
-          validateOnChange,
           values
         }) => (
           <form onSubmit={handleSubmit}>
-            {prependChildren}
             {fields.map(field => (
               <>
-                <Field
-                  key={field.name}
-                  component={"input"}
-                  containerClass={field.containerClass}
-                  refId={refId}
-                  selectOptions={field.select}
-                  radioOptions={field.options}
-                  name={field.name}
-                  type={field.type}
-                  value={values[field.name]}
-                  label={field.label}
-                  description={field.description}
-                  hasFeedback
-                  placeholder={field.placeholder}
-                />
-                {error && touched[field.name] && (
-                  <span>{error[field.name]}</span>
-                )}
+                <div className="form-group">
+                  <label for={field.name}>{field.label}</label>
+                  <input
+                    key={field.name}
+                    name={field.name}
+                    id={field.name}
+                    className="form-control"
+                    value={values[field.name]}
+                  />
+                  {error && touched[field.name] && (
+                    <span>{error[field.name]}</span>
+                  )}
+                </div>
               </>
             ))}
-            {children}
             {status && status.msg && (
-              <span className="error-message">{status.msg}</span>
+              <div className="invalid-feedback">{status.msg}</div>
             )}
             <button
               className="btn btn-primary"
