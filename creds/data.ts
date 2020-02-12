@@ -16,11 +16,12 @@ export const carSchema = Yup.object().shape({
   year: Yup.number()
     .required()
     .min(1885, "First car was built in 1885")
+    .max(parseInt(new Date().getFullYear().toString()))
 });
 
 export type Car = Yup.InferType<typeof carSchema>;
 
-const cars: Array<Car> = [
+export const cars: Array<Car> = [
   { make: "GMC", model: "Sonoma", colour: "Orange", year: 2002 },
   { make: "Buick", model: "Regal", colour: "Maroon", year: 1998 },
   { make: "Land Rover", model: "Range Rover", colour: "Yellow", year: 2000 },
@@ -52,3 +53,5 @@ const cars: Array<Car> = [
   { make: "Pontiac", model: "Grand Prix", colour: "Turquoise", year: 1969 },
   { make: "Audi", model: "R8", colour: "Puce", year: 2008 }
 ];
+
+export default cars;
