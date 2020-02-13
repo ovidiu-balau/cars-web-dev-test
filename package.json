@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.19",
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2",
     "typescript": "^3.7.5"
   }
 }
