@@ -21,6 +21,7 @@ const carSchemaServer = Joi.object().keys({
     .integer()
     .min(1885)
     .max(2021)
+    .required()
 });
 
 export default (req, res) => {
@@ -30,7 +31,7 @@ export default (req, res) => {
       if (error) {
         res.status(422).json({
           status: "error",
-          message: "Invalid request data",
+          message: error.details,
           data: req.body
         });
       }
