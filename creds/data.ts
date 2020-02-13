@@ -4,7 +4,7 @@ export const carSchema = Yup.object().shape({
   make: Yup.string()
     .min(3, "Car make too short")
     .max(30, "Car make too long")
-    .required("Carmake is a required field"),
+    .required("Car make is a required field"),
   model: Yup.string()
     .min(3, "Car model too short")
     .max(30, "Car model too long")

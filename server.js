@@ -1,28 +1,24 @@
+const express = require("express");
 const next = require("next");
 const admin = require("firebase-admin");
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
+const handle = app.getRequestHandler();
 
-var serviceAccount = require("./creds/firebase.json");
-
-const firebase = admin.initializeApp(
-  {
-    credential: admin.credential.cert(serviceAccount)
-  },
-  "server"
-);
+admin.initializeApp({
+  credential: admin.credential.cert(require("./creds/server"))
+});
 
 app.prepare().then(() => {
   const server = express();
 
   server.use((req, res, next) => {
-    req.firebaseServer = firebase;
     next();
   });
 
-  server.get("*", (req, res) => {
+  server.all("*", (req, res) => {
     return handle(req, res);
   });
 

@@ -8,15 +8,22 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.0",
     "@types/yup": "^0.26.30",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "firebase": "^7.8.1",
     "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0",
     "formik": "^2.1.4",
+    "joi": "^14.3.1",
     "next": "^9.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "yup": "^0.28.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "typescript": "^3.7.5"
   }
 }
