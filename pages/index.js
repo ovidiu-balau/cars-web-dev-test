@@ -29,7 +29,9 @@ const Car = ({ car }) => (
     <p>
       {car.year} {car.make} {car.model}
     </p>
-    <p style={{ marginTop: -20, fontSize: 12 }}>{car.colour}</p>
+    <p style={{ marginTop: -20, fontSize: 12 }}>
+      {car.colour} - {car.id}
+    </p>
   </div>
 );
 
@@ -69,7 +71,7 @@ export default class Index extends React.Component {
     return (
       <div className="container" style={{ marginTop: 30 }}>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-4">
             <h1>Cars web dev test</h1>
             <button className="btn btn-primary" onClick={this.handleFetchCars}>
               Fetch cars
@@ -94,6 +96,31 @@ export default class Index extends React.Component {
                 </div>
               </div>
             )}
+          </div>
+          <div className="col-md-4">
+            <h1>Available routes</h1>
+            <div style={{ marginBottom: 20 }}>
+              <strong>GET - /api/cars/get</strong>
+            </div>
+            <div style={{ marginBottom: 20 }}>
+              <strong style={{ marginBottom: 0 }}>
+                GET - /api/cars/get?id
+              </strong>
+              <br />
+              <span>takes id as parameter</span>
+            </div>
+            <div style={{ marginBottom: 20 }}>
+              <strong style={{ marginBottom: 0 }}>POST - /api/cars/add</strong>
+              <br />
+              <span>takes spread car object</span>
+            </div>
+            <div style={{ marginBottom: 20 }}>
+              <strong style={{ marginBottom: 0 }}>
+                POST - /api/cars/update
+              </strong>
+              <br />
+              <span>takes id and car object</span>
+            </div>
           </div>
           <div className="col-md-4">
             <FormikForm
