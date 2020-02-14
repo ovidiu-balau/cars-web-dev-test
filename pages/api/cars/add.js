@@ -46,7 +46,7 @@ export default (req, res) => {
           const carValue = value;
           carValue.id = snap.id;
           res.json({
-            status: "success",
+            status: 201,
             message: "Car added successfully",
             data: carValue
           });
