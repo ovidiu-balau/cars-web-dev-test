@@ -53,7 +53,10 @@ export default class Index extends React.Component {
   handleAddCar = (values, actions) => {
     axios
       .post("http://localhost:3000/api/cars/add", values)
-      .then(() => actions.resetForm())
+      .then(() => {
+        actions.resetForm();
+        this.handleFetchCars();
+      })
       .catch(err => console.error(err));
   };
 
